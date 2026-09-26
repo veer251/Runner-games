@@ -1572,6 +1572,12 @@
     const mt2 = DS.cache('w.geo.mt2', () => geoMountains(72, 212, 40, 45, 95, ['#6a8a9a', '#5a7a8a', '#7a9aaa']));
     DS.mesh(mt1, M.mount, 0, 0, 0, far, false).receiveShadow = false;
     DS.mesh(mt2, M.mount, 0, 0, 0, far, false).receiveShadow = false;
+    // HOKAGE MONUMENT in the distance (Konoha rooftops)
+    { const hk = DS.cache('w.geo.hokage', geoHokage);
+      const mon = new THREE.Group(); mon.position.set(-30, 20, -150); mon.scale.setScalar(2.0); far.add(mon);
+      DS.mesh(hk.cliff, DS.std('#b7a488', { roughness: 0.95, flatShading: true }), 0, 0, 0, mon, false).receiveShadow = false;
+      DS.mesh(hk.faces, DS.std('#c8b89a', { roughness: 0.95, flatShading: true }), 0, 0, 0, mon, false).receiveShadow = false;
+      DS.mesh(hk.trees, DS.std('#3a7a3a', { roughness: 0.9, flatShading: true }), 0, 0, 0, mon, false).receiveShadow = false; }
     far.position.y = -5.8;
 
     // smoke trail from the unseen locomotive, embers, wind streaks, wheel sparks
