@@ -20,6 +20,43 @@
   camera.rotation.order = 'YXZ';
   scene.add(camera);
 
+  // ================================================================ cinematic post-processing
+  const usePP = !qs.has('nopp') && !!THREE.EffectComposer;
+  let composer = null, ssaoPass = null, bloomPass = null, smaaPass = null;
+  let ppFailed = false;
+  function renderScene() {
+    if (composer && !ppFailed) {
+      try { composer.render(); return; }
+      catch (e) { console.error('post-processing failed, falling back:', e); ppFailed = true; }
+    }
+    renderer.render(scene, camera);
+  }
+  if (usePP) {
+    composer = new THREE.EffectComposer(renderer);
+    composer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    composer.addPass(new THREE.RenderPass(scene, camera));
+    // soft glow on bright/emissive
+    bloomPass = new THREE.UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.42, 0.55, 0.82);
+    composer.addPass(bloomPass);
+    // color grade + vignette (cinematic pop)
+    const GradeShader = {
+      uniforms: { tDiffuse: { value: null }, contrast: { value: 1.09 }, saturation: { value: 1.14 }, vigStrength: { value: 0.28 } },
+      vertexShader: 'varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
+      fragmentShader: [
+        'uniform sampler2D tDiffuse; uniform float contrast, saturation, vigStrength; varying vec2 vUv;',
+        'void main(){',
+        '  vec4 c = texture2D(tDiffuse, vUv); vec3 col = c.rgb;',
+        '  col = (col - 0.5) * contrast + 0.5;',
+        '  float l = dot(col, vec3(0.299,0.587,0.114)); col = mix(vec3(l), col, saturation);',
+        '  float d = length(vUv - 0.5); float vg = smoothstep(0.85, 0.35, d);',
+        '  col *= mix(1.0 - vigStrength, 1.0, vg);',
+        '  gl_FragColor = vec4(clamp(col,0.0,1.0), c.a);',
+        '}'
+      ].join('\n')
+    };
+    composer.addPass(new THREE.ShaderPass(GradeShader));
+  }
+
   // ---------------- sky dome (tone-mapped so it matches fog) ----------------
   const skyU = {
     top: { value: new THREE.Color() }, mid: { value: new THREE.Color() }, horizon: { value: new THREE.Color() },
@@ -441,7 +478,7 @@
     tick(Math.min(clock.getDelta(), 0.05));
   }
   // debug/test hooks: advance the simulation deterministically without rAF
-  G.step = function (seconds, fps = 30) { const n = Math.round(seconds * fps); for (let i = 0; i < n; i++) tick(1 / fps, i < n - 1); renderer.render(scene, camera); return { t: +G.t.toFixed(2), z: +player.z.toFixed(1), state: G.state }; };
+  G.step = function (seconds, fps = 30) { const n = Math.round(seconds * fps); for (let i = 0; i < n; i++) tick(1 / fps, i < n - 1); renderScene(); return { t: +G.t.toFixed(2), z: +player.z.toFixed(1), state: G.state }; };
   G.press = (k) => action(k, true);
   G.start = (i) => beginFrom(i);
   G.release = (k) => action(k, false);
@@ -491,7 +528,7 @@
       sky.position.copy(camera.position);
       DS.UI.update(dt, speedK);
     } catch (err) { console.error(err); }
-    if (!skipRender) renderer.render(scene, camera);
+    if (!skipRender) renderScene();
   }
 
   function beginFrom(i) {
@@ -541,7 +578,7 @@
   });
   DS.Settings.apply();
 
-  window.addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
+  window.addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); if (composer) composer.setSize(innerWidth, innerHeight); if (ssaoPass) ssaoPass.setSize(innerWidth, innerHeight); if (bloomPass) bloomPass.setSize(innerWidth, innerHeight); if (smaaPass) smaaPass.setSize(innerWidth * Math.min(devicePixelRatio,2), innerHeight * Math.min(devicePixelRatio,2)); });
   document.getElementById('btn-play').addEventListener('click', () => beginFrom(0));
   document.querySelectorAll('#start .levels button').forEach(b => b.addEventListener('click', () => beginFrom(+b.dataset.level)));
   if (qs.has('rec')) document.body.classList.add('rec');

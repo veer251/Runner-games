@@ -1,6 +1,11 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { width: 100%; height: 100%; overflow: hidden; background: #05030a; font-family: 'Bangers', 'Segoe UI', sans-serif; user-select: none; touch-action: none; }
 #game, #game canvas { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+/* cinematic color grade (GPU-free, works everywhere) */
+#game canvas { filter: saturate(1.18) contrast(1.06) brightness(1.02); }
+/* cinematic vignette for depth/framing */
+#game::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 2;
+  background: radial-gradient(ellipse 78% 78% at 50% 44%, rgba(0,0,0,0) 58%, rgba(0,0,0,0.32) 100%); }
 #speedlines { position: fixed; inset: 0; pointer-events: none; z-index: 3; }
 #vignette { position: fixed; inset: 0; pointer-events: none; z-index: 4;
   background: radial-gradient(ellipse at center, transparent 58%, rgba(10, 0, 20, 0.55) 100%); }
