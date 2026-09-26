@@ -45,12 +45,12 @@
   // LEVEL 3 — NIGHT TRAIN ROOFTOP (NEW: katana SLASH)
   L.push({
     id: 'train', name: 'ROOFTOP CHASE', world: 'train', preset: 'train', speed: 16, dur: 50,
-    katana: true, music: 'train',
+    katana: false, music: 'train',
     seq: [
-      [3.5, 'slash', 'right'], [6.0, 'jump'], [8.6, 'slash', 'left'], [11.2, 'duck'],
-      [13.8, 'left'], [16.4, 'slash', 'right'], [18.8, 'slash', 'left'], [21.4, 'jump'],
-      [24.0, 'duck'], [26.6, 'right'], [29.2, 'slash', 'x'], [32.0, 'wall'],
-      [35.5, 'jump'], [38.0, 'duck'], [40.6, 'slash', 'right'], [43.0, 'left'], [45.6, 'jump'], [48.0, 'slash', 'left']
+      [3.5, 'right'], [6.0, 'jump'], [8.6, 'left'], [11.2, 'duck'],
+      [13.8, 'left'], [16.4, 'right'], [18.8, 'left'], [21.4, 'jump'],
+      [24.0, 'duck'], [26.6, 'right'], [29.2, 'jump'], [32.0, 'wall'],
+      [35.5, 'jump'], [38.0, 'duck'], [40.6, 'right'], [43.0, 'left'], [45.6, 'jump'], [48.0, 'left']
     ]
   });
 
