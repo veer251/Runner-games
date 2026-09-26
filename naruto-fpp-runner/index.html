@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naruto FPP Runner</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Canvas -->
+<canvas id="c"></canvas>
+
+<!-- Speed lines overlay -->
+<canvas id="speedLines"></canvas>
+
+<!-- Screen flash -->
+<div id="flash"></div>
+
+<!-- Damage vignette -->
+<div id="vignette"></div>
+
+<!-- Move cue icon -->
+<div id="moveCue"></div>
+
+<!-- Boss health bar -->
+<div id="bossBar">
+  <div id="bossName">SASUKE UCHIHA</div>
+  <div id="bossBarOuter"><div id="bossBarInner"></div></div>
+  <div id="bossRound">ROUND 1</div>
+</div>
+
+<!-- HUD (optional ?hud=1) -->
+<div id="hud">
+  <div id="hudLevel">LEVEL 1</div>
+  <div id="hudProgress"><div id="hudProgressInner"></div></div>
+  <div id="hudSpeed">14 m/s</div>
+</div>
+
+<!-- Move guide pill -->
+<div id="guidePill">W=Jump &nbsp; S=Duck &nbsp; A/D=Dodge &nbsp; Shift=Jutsu</div>
+
+<!-- Shout text (NICE!, EXCELLENT!, etc.) -->
+<div id="shout"></div>
+
+<!-- Pose wall overlay -->
+<div id="poseWall">
+  <div id="poseIcon"></div>
+  <div id="poseLabel">COPY THE POSE!</div>
+</div>
+
+<!-- START SCREEN -->
+<div id="startScreen" class="screen">
+  <div class="screenCard">
+    <div class="gameTitle">NARUTO<br><span>FPP RUNNER</span></div>
+    <div class="levelMap" id="levelMapDisplay"></div>
+    <button class="playBtn" id="playBtn">▶</button>
+    <div class="controlHints">
+      <span>↑ JUMP</span><span>↓ DUCK</span><span>← → DODGE</span><span>⚡ SHIFT = JUTSU</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAUSE SCREEN -->
+<div id="pauseScreen" class="screen hidden">
+  <div class="screenCard">
+    <div class="pauseTitle">PAUSED</div>
+    <button class="iconBtn" id="resumeBtn">▶</button>
+    <button class="iconBtn" id="restartBtn">↻</button>
+  </div>
+</div>
+
+<!-- LEVEL COMPLETE SCREEN -->
+<div id="levelCompleteScreen" class="screen hidden">
+  <div class="screenCard">
+    <div id="levelCompleteTitle">LEVEL COMPLETE!</div>
+    <div id="levelStars">⭐⭐⭐</div>
+    <div id="nextLevelName"></div>
+    <button class="iconBtn" id="nextLevelBtn">▶</button>
+  </div>
+</div>
+
+<!-- GAME OVER SCREEN -->
+<div id="gameOverScreen" class="screen hidden">
+  <div class="screenCard">
+    <div class="pauseTitle">MISSION FAILED</div>
+    <button class="iconBtn" id="goRestartBtn">↻</button>
+  </div>
+</div>
+
+<!-- WIN SCREEN -->
+<div id="winScreen" class="screen hidden">
+  <div class="screenCard">
+    <div class="gameTitle" style="font-size:2.2rem">MISSION<br><span>COMPLETED!</span></div>
+    <div style="font-size:1.4rem;margin:12px 0;color:#ffd700">🎉 BELIEVE IT! 🎉</div>
+    <button class="iconBtn" id="winRestartBtn">↻</button>
+  </div>
+</div>
+
+<!-- LEVEL INTRO CARD (cinematic) -->
+<div id="levelIntro" class="hidden">
+  <div id="levelIntroSpeedLines"></div>
+  <div id="levelIntroNumber"></div>
+  <div id="levelIntroName"></div>
+  <div id="levelIntroMoves"></div>
+</div>
+
+<!-- Mobile controls -->
+<div id="mobileControls">
+  <button class="mBtn" id="mLeft">◀</button>
+  <button class="mBtn" id="mJump">▲<br><small>JUMP</small></button>
+  <button class="mBtn" id="mDuck">▼<br><small>DUCK</small></button>
+  <button class="mBtn" id="mRight">▶</button>
+  <button class="mBtn mShift" id="mJutsu">⚡<br><small>JUTSU</small></button>
+</div>
+
+<!-- Top-right controls -->
+<div id="topRight">
+  <button class="miniBtn" id="muteBtn" title="Mute">🔊</button>
+  <button class="miniBtn" id="pauseTopBtn" title="Pause">⏸</button>
+</div>
+
+<script src="js/three.min.js"></script>
+<script src="js/GLTFLoader.js"></script>
+<script src="js/RGBELoader.js"></script>
+<script src="js/SkeletonUtils.js"></script>
+<script src="js/postprocessing/EffectComposer.js"></script>
+<script src="js/postprocessing/RenderPass.js"></script>
+<script src="js/postprocessing/ShaderPass.js"></script>
+<script src="js/postprocessing/UnrealBloomPass.js"></script>
+<script src="js/postprocessing/CopyShader.js"></script>
+<script src="js/postprocessing/LuminosityHighPassShader.js"></script>
+<script src="js/config.js"></script>
+<script src="js/textures.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/world.js"></script>
+<script src="js/obstacles.js"></script>
+<script src="js/characters.js"></script>
+<script src="js/player.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
