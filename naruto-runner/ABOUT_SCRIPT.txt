@@ -1,0 +1,155 @@
+================================================================
+GAME: DEMON SLAYER: INFINITY CASTLE RUN
+FOLDER: demon-slayer-infinity-run
+EXE: DemonSlayerRun.exe
+PORT: 8090
+UPLOAD TIMING: Anytime (evergreen anime)
+================================================================
+
+CONCEPT
+-------
+A first-person (FPP) runner set in the Demon Slayer universe where the player runs through iconic locations
+from the Wisteria Forest to the Infinity Castle. The player wields a katana, performs breathing techniques,
+rescues Nezuko, and fights an Upper Moon boss. The emotional hook is the bonds between the Demon Slayer
+Corps — the same love for Tanjiro and his friends that millions of fans feel watching the show.
+
+WHY VIEWERS RELATE
+------------------
+- Tanjiro, Nezuko's box, Zenitsu, Inosuke — instantly recognisable characters kids adore
+- The Infinity Castle arc is one of anime's most stunning settings: impossible rooms, red torii gates, shoji walls
+- Pose walls mirror iconic breathing stance poses that fans know by heart
+- The katana slash mechanic with a Water Breathing trail makes every viewer want to try it
+- "Dedicate your hearts" energy — the Survey Corps spirit carries over from AoT fans who also love DS
+
+RESEARCH DATA
+-------------
+- Demon Slayer is a top-3 anime globally; the Infinity Castle arc film was a record-breaking theatrical release
+- Anime interactive warmup videos have a median ~321K views — the highest proven median in the channel's niche
+- Zero quality FPP runner existed when this game was built
+
+PALETTE
+-------
+Wisteria purple: #9b59b6 — wisteria flowers, background trees
+Night navy: #0a0a1a — sky in all outdoor levels
+Stone lantern amber: #e8a040 — stone lanterns, warm torchlight
+Tatami green-gold: #c8a850 — castle floor and wall panels
+Red torii: #c0392b — castle gate posts
+Water blue: #4fc3f7 — Water Breathing slash trail, Tanjiro's earring gems
+
+PLAYER (FPP VIEW)
+-----------------
+The player sees Tanjiro's black-checkered haori sleeve and a katana blade in the right hand. The blade gleams
+with a Water Breathing blue shimmer when a slash is performed. No brim or hat is visible from the FPP camera.
+During the slash, a flowing water-trail arc sweeps across the screen in translucent blue.
+
+CHARACTERS
+----------
+Tanjiro — runs ahead in L1; black-checkered haori, hanafuda earrings, red demon-slayer scar on forehead
+Nezuko — her pink-striped box sits in the push cart (L1); glows soft pink
+Inosuke — runs ahead in L2; boar-skull mask, torn green haori, dual short swords
+Zenitsu — runs ahead in L3 on the train roof; yellow haori, terrified expression
+Demons (generic) — grey humanoid figures with red eyes and clawed hands, dodge obstacles
+Flesh Tentacles (L3) — pink fleshy arms rising from the train roof, slashed with the katana
+Upper Moon Boss (L4) — tall, pale, long silver hair, snowflake haori, crescent moon mark on one eye
+
+LEVELS
+------
+
+LEVEL 1 — WISTERIA FOREST (moonlit night, serene and eerie)
+  Scenery: Falling wisteria petals (particles), ancient stone lanterns lining a dirt path, gnarled
+           moonlit trees, distant mountains under a dark blue sky, low mist at ground level.
+  Obstacles:
+    JUMP: Fallen logs and jutting tree roots crossing the path
+    DUCK: Shimenawa rope stretched between two trees at head height
+    DODGE: Demons lurching out of the tree line into the player's lane
+  SET PIECE — CART: The supply cart carrying Nezuko's glowing pink box — hold Shift to push it forward; shout "PROTECT NEZUKO!"
+  SET PIECE — WALL: Three stone-and-wood shrine gates (torii) stacked as a barricade, smashed x3 with Shift
+
+LEVEL 2 — INFINITY CASTLE (warm candlelight, otherworldly and red-tinted)
+  Scenery: Floating tatami rooms at impossible angles, red torii gates as pillars, paper shoji screens
+           sliding open and shut, silk banners in crimson and black, a full moon visible through
+           a gap in the twisting architecture.
+  Obstacles:
+    JUMP: Raised tatami platform edges
+    DUCK: Low noren curtain beams hanging across the corridor
+    DODGE: Sliding shoji panels and demons stepping from behind them
+  POSE WALLS (5):
+    1. WATER BREATHING (warrior lunge) — Tanjiro's Form 3 stance from the show
+    2. WIND STANCE (star spread) — Inosuke's wild dual-blade open stance
+    3. THUNDER (crane one-leg) — Zenitsu's lightning-leg pose
+    4. TOTAL CONCENTRATION (tpose arms wide) — the breathing technique meditation pose
+    5. SLAYER'S SALUTE (xarms over chest) — the Demon Slayer Corps salute
+  SET PIECE — WALL: A solid shoji-and-wood barrier x3
+
+LEVEL 3 — NIGHT TRAIN ROOFTOP (Mugen Train, speeding night, FASTEST) ★ SIGNATURE MOVE: KATANA SLASH
+  Scenery: The black-and-red Mugen Train speeding through a mountain tunnel and out into a starry night;
+           telegraph poles flashing past, sparks from the rails below, the train's chimney blasting steam.
+  Obstacles:
+    JUMP: Flesh ridges rising across the roof
+    DUCK: Steel bridge crossbeams passing low overhead
+    DODGE: Engine vents and protruding metal rivets
+  SIGNATURE: A flesh tentacle rises in the player's lane; Shift = the katana slashes with a Water Breathing
+             blue-white arc trail. The tentacle bursts into pink particles and the screen flashes.
+             Big text: "AIM FOR THE NAPE!" / "HINOKAMI!"
+
+LEVEL 4 — BOSS: UPPER MOON (floating tatami arena, snowflake aura)
+  Boss appearance: Tall and pale with long silver-white hair, dressed in a white haori with a snowflake
+                   pattern and a crescent moon kanji on his eye. Surrounded by drifting ice crystals.
+  Attack patterns:
+    A (LEFT): Blue orb flies from the left — press A to slash it
+    D (RIGHT): Blue orb flies from the right — press D to slash it
+    SHIFT/X: Pink X-shaped cross-slash — press Shift to counter-slash
+    S (DUCK): Red shockwave ring sweeps along the ground — duck to avoid it
+  ROUND 3 SPECIAL (R3): Boss spawns two orbs simultaneously; screen edge glows purple; "FINAL ROUND!" appears
+  FINAL BLOW: The player and Tanjiro combine attacks — a dual Water Breathing + Sun Breathing spiral beam.
+              The boss shatters into snowflakes and blue light. "FINAL BLOW!" in red-gold kanji style.
+  CELEBRATION: The sun rises (dawn sky preset) over the Infinity Castle. Tanjiro, Nezuko (she leaps out of
+               the box), Zenitsu and Inosuke gather. Sparkle confetti falls. Text: "DEDICATE YOUR HEARTS!"
+
+SHOUTS / BIG TEXT
+-----------------
+- "PROTECT NEZUKO!"
+- "AIM FOR THE NAPE!"
+- "TATAKAE!"
+- "HINOKAMI!"
+- "TOTAL CONCENTRATION!"
+- "FINAL BLOW!"
+- "DEDICATE YOUR HEARTS!"
+- "PERFECT!" / "GOOD!" / "MISS!" (boss rhythm cues)
+
+SOUND EFFECTS
+-------------
+- Katana slash whoosh (short, metallic)
+- Water Breathing arc (liquid swell)
+- Demon shriek (high noise burst)
+- Stone lantern ambient crackle
+- Train whistle and wind
+- Boss ice-crystal chime
+- Dawn bell (celebration)
+
+YOUTUBE
+-------
+Title: 4K Immersive Interactive Warm Up | ⚔️ DEMON SLAYER INFINITY CASTLE RUN | Fun Workout | Full Body #0
+Hook: ⚔️ The Infinity Castle awaits! Run with Tanjiro, slash demons with Water Breathing, and defeat the Upper Moon boss!
+
+THUMBNAIL PROMPTS
+-----------------
+MAIN THUMBNAIL (use this for AI image generation):
+Center frame: a first-person perspective showing glowing red-and-blue katana blades in both hands, held
+forward in a dramatic Water Breathing slash pose. The background shows the impossible geometry of the
+Infinity Castle — floating tatami rooms, red torii gates, and a giant full moon visible through a gap in
+the architecture. The color palette is deep navy blue with vivid crimson and icy blue accent lights.
+Falling wisteria petals drift across the frame. Top-left corner: bold title text "DEMON SLAYER:
+INFINITY CASTLE RUN" in a stylized Japanese brush-stroke font with a red glow. Bottom-right: small
+"FUN WORKOUT" badge. Overall style: cinematic anime fan-art, 16:9 ratio, high contrast, dramatic.
+Lighting comes from below through the tatami cracks, casting an eerie red-gold glow on the blades.
+
+ALT THUMBNAIL (close-up crop variant):
+Extreme close-up on the glowing katana blades crossing in an X shape against the Infinity Castle
+background. The blades drip with Water Breathing blue-white light effects. The red torii gate frames
+the shot. Text overlay "INFINITY CASTLE" in fiery white.
+
+THUMBNAIL TEXT OVERLAY:
+Main title: "DEMON SLAYER INFINITY CASTLE RUN"
+Tagline: "Slash Demons · Save Nezuko · Defeat the Upper Moon"
+================================================================
