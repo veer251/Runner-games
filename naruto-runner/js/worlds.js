@@ -845,6 +845,34 @@
     for (let k = 0; k < 5; k++) m.add(G.cyl8, 0, y + 1 + k * 0.8, 0, 0, 0, 0, 0.5 - k * 0.05, 0.12, 0.5 - k * 0.05, '#2a2238');
     return { body: m.build(), win: win.build() };
   }
+  // HOKAGE MONUMENT — Konoha cliff with 5 carved faces + treeline on top
+  function geoHokage() {
+    const cliff = new Merger(), faces = new Merger(), trees = new Merger();
+    // main cliff wall (wide, tall, slightly stepped)
+    cliff.add(G.box, 0, 15, 0, 0, 0, 0, 78, 30, 9, '#b7a488');
+    cliff.add(G.box, 0, 28, -1, 0, 0, 0, 82, 8, 11, '#a89578');   // upper ledge
+    cliff.add(G.box, 0, 6, 4, 0, 0, 0, 80, 12, 3, '#9c8a6e');     // lower base slope
+    // rocky strata lines
+    for (let i = 0; i < 5; i++) cliff.add(G.box, (i - 2) * 15, 10 + (i % 2) * 6, 4.6, 0, 0, 0, 12, 1.2, 0.6, '#8f7d62');
+    // 5 Hokage faces carved into the wall, protruding forward
+    const fx = [-30, -15, 0, 15, 30];
+    for (let i = 0; i < 5; i++) {
+      const x = fx[i], y = 18, z = 4.7;
+      faces.add(G.ico0, x, y, z, 0, 0, 0, 6.2, 7.4, 3.2, '#c8b89a');       // head
+      faces.add(G.box, x, y + 6.2, z + 0.3, 0, 0, 0, 12, 3, 2.4, '#a89578'); // hair/hat block
+      faces.add(G.box, x, y - 1.5, z + 2.6, 0, 0, 0, 5.2, 1.0, 1.2, '#b7a488'); // brow ridge
+      faces.add(G.box, x - 1.6, y + 0.4, z + 3.0, 0, 0, 0, 1.3, 0.7, 0.6, '#6a5c48'); // eye L
+      faces.add(G.box, x + 1.6, y + 0.4, z + 3.0, 0, 0, 0, 1.3, 0.7, 0.6, '#6a5c48'); // eye R
+      faces.add(G.box, x, y - 2.6, z + 3.0, 0, 0, 0, 0.9, 1.4, 0.6, '#a89578'); // nose
+    }
+    // green treeline along the top
+    seed(717);
+    for (let i = 0; i < 22; i++) {
+      const x = -40 + i * 3.8 + rr(-1, 1), s = rr(2.2, 3.6);
+      trees.add(G.ico0, x, 33.5 + rr(-0.5, 1), rr(-3, 2), 0, 0, 0, s, s * 0.9, s, '#3a7a3a');
+    }
+    return { cliff: cliff.build(), faces: faces.build(), trees: trees.build() };
+  }
   function geoCrow() {
     const m = new Merger(), c = '#16141d';
     m.add(G.sph, 0, 0, 0, 0, 0, 0, 0.17, 0.15, 0.38, c);
@@ -1205,11 +1233,15 @@
     const mt2 = DS.cache('w.geo.mt2', () => geoMountains(72, 212, 40, 45, 95, ['#6a8a9a', '#5a7a8a', '#7a9aaa']));
     DS.mesh(mt1, M.mount, 0, 0, 0, far, false).receiveShadow = false;
     DS.mesh(mt2, M.mount, 0, 0, 0, far, false).receiveShadow = false;
-    const pag = DS.cache('w.geo.pagoda', geoPagoda);
-    const pagoda = new THREE.Group(); pagoda.position.set(-46, -4, -160); pagoda.scale.setScalar(1.4); far.add(pagoda);
-    DS.mesh(pag.body, M.vc, 0, 0, 0, pagoda, false).receiveShadow = false;
-    DS.mesh(pag.win, M.farGlow, 0, 0, 0, pagoda, false).receiveShadow = false;
-    const pHalo = DS.halo(0xffa850, 34, 0.28); pHalo.material.fog = false; pHalo.position.set(0, 22, 0); pagoda.add(pHalo);
+    // HOKAGE MONUMENT — the iconic Konoha cliff with carved faces (replaces pagoda)
+    const hokage = DS.cache('w.geo.hokage', geoHokage);
+    const monument = new THREE.Group(); monument.position.set(0, 10, -148); monument.scale.setScalar(2.3); far.add(monument);
+    const stoneMat = DS.std('#b7a488', { roughness: 0.95, flatShading: true });
+    const stoneMat2 = DS.std('#c8b89a', { roughness: 0.95, flatShading: true });
+    DS.mesh(hokage.cliff, stoneMat, 0, 0, 0, monument, false).receiveShadow = false;
+    DS.mesh(hokage.faces, stoneMat2, 0, 0, 0, monument, false).receiveShadow = false;
+    // green treeline along the cliff top
+    DS.mesh(hokage.trees, DS.std('#3a7a3a', { roughness: 0.9, flatShading: true }), 0, 0, 0, monument, false).receiveShadow = false;
 
     // life: petals, fireflies, kasugai crows
     const PET = 1600;
