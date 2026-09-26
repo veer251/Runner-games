@@ -54,9 +54,9 @@
       rim: 0x9fd4ff, rimInt: 0.35, exposure: 1.0, moon: false, moonDir: nrm([0.25, 0.4, -1]), moonColor: 0xfff6e0, sunMode: true
     },
     castle: {
-      skyTop: 0x1a0606, skyMid: 0x3a0d10, skyHorizon: 0x5a1c16, fog: 0x2b0d0b, fogNear: 25, fogFar: 120,
-      hemiSky: 0xffcf9a, hemiGround: 0x2a0a08, hemiInt: 0.6, key: 0xffb070, keyInt: 1.4, keyDir: [10, 30, -10],
-      rim: 0xff5a3c, rimInt: 0.4, exposure: 1.05, moon: false, moonDir: nrm([0, 0.3, -1]), moonColor: 0xffffff, sunMode: false
+      skyTop: 0x0a1220, skyMid: 0x14324a, skyHorizon: 0x2a6a5a, fog: 0x123028, fogNear: 28, fogFar: 130,
+      hemiSky: 0x9fe0c0, hemiGround: 0x0a1a16, hemiInt: 0.6, key: 0xffe0a0, keyInt: 1.45, keyDir: [10, 34, -12],
+      rim: 0x40e0a0, rimInt: 0.45, exposure: 1.05, moon: false, moonDir: nrm([0, 0.3, -1]), moonColor: 0xffffff, sunMode: false
     },
     train: {
       skyTop: 0x060b1f, skyMid: 0x1b2455, skyHorizon: 0x4a5a9a, fog: 0x1c2448, fogNear: 50, fogFar: 220,

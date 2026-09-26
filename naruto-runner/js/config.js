@@ -22,7 +22,7 @@
 
   // LEVEL 1 — WISTERIA FOREST (easy: run, jump, duck, dodge + push cart + smash wall)
   L.push({
-    id: 'forest', name: 'WISTERIA FOREST', world: 'forest', preset: 'forest', speed: 13, dur: 48,
+    id: 'forest', name: 'KONOHA VILLAGE', world: 'forest', preset: 'forest', speed: 13, dur: 48,
     katana: false, music: 'forest',
     seq: [
       [3.5, 'jump'], [6.3, 'duck'], [9.2, 'left'], [12.0, 'jump'], [15.0, 'cart'],
@@ -33,7 +33,7 @@
 
   // LEVEL 2 — INFINITY CASTLE (pose walls = "mirror me")
   L.push({
-    id: 'castle', name: 'INFINITY CASTLE', world: 'castle', preset: 'castle', speed: 14, dur: 50,
+    id: 'castle', name: 'CHUNIN EXAMS', world: 'castle', preset: 'castle', speed: 14, dur: 50,
     katana: false, music: 'castle',
     seq: [
       [3.5, 'jump'], [6.2, 'duck'], [9.5, 'pose', 'star'], [12.5, 'left'], [15.2, 'jump'],
@@ -44,7 +44,7 @@
 
   // LEVEL 3 — NIGHT TRAIN ROOFTOP (NEW: katana SLASH)
   L.push({
-    id: 'train', name: 'NIGHT TRAIN', world: 'train', preset: 'train', speed: 16, dur: 50,
+    id: 'train', name: 'ROOFTOP CHASE', world: 'train', preset: 'train', speed: 16, dur: 50,
     katana: true, music: 'train',
     seq: [
       [3.5, 'slash', 'right'], [6.0, 'jump'], [8.6, 'slash', 'left'], [11.2, 'duck'],
@@ -62,7 +62,7 @@
   ['L', 'R', 'L', 'R', 'D', 'X', 'L', 'R', 'D', 'L', 'R', 'X'].forEach((n, i) => notes.push([r3 + 2 + i * 1.1, n]));
   const lastNote = r3 + 2 + 11 * 1.1;
   L.push({
-    id: 'boss', name: 'UPPER MOON', world: 'arena', preset: 'arena', speed: 0, dur: lastNote + 16,
+    id: 'boss', name: 'VALLEY OF THE END', world: 'arena', preset: 'arena', speed: 0, dur: lastNote + 16,
     katana: true, music: 'boss', boss: true,
     rounds: [[r1, 'ROUND 1'], [r2, 'ROUND 2'], [r3, 'FINAL ROUND']],
     notes, travel: 1.5,                 // seconds a note flies from boss to player
