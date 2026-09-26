@@ -72,6 +72,37 @@
       skyTop: 0x3d6fb6, skyMid: 0xf7a6b6, skyHorizon: 0xffd27a, fog: 0xf3b98f, fogNear: 60, fogFar: 240,
       hemiSky: 0xffe0c0, hemiGround: 0x5a4a6a, hemiInt: 0.8, key: 0xffd7a0, keyInt: 2.4, keyDir: [20, 20, -60],
       rim: 0xff9ad5, rimInt: 0.4, exposure: 1.0, moon: true, moonDir: nrm([0, 0.12, -1]), moonColor: 0xffe7b0, sunMode: true
+    },
+    // ── Naruto level moods ──────────────────────────────────────────
+    forestDusk: { // L2 Forest of Death
+      skyTop: 0x1a1230, skyMid: 0x3a2350, skyHorizon: 0xa85a3a, fog: 0x3a2438, fogNear: 30, fogFar: 150,
+      hemiSky: 0x8a6aa0, hemiGround: 0x1a1020, hemiInt: 0.45, key: 0xffa060, keyInt: 1.6, keyDir: [-20, 30, -30],
+      rim: 0x6a80c0, rimInt: 0.4, exposure: 1.05, moon: false, moonDir: nrm([0.2, 0.2, -1]), moonColor: 0xffd0a0, sunMode: false
+    },
+    chakra: { // L3 Chakra Control — bright morning
+      skyTop: 0x1a5ac8, skyMid: 0x5ab0e8, skyHorizon: 0xcaf0ff, fog: 0xd0eeff, fogNear: 55, fogFar: 240,
+      hemiSky: 0xd0f0ff, hemiGround: 0x4a7a5a, hemiInt: 0.7, key: 0xffffe0, keyInt: 2.2, keyDir: [-15, 55, -40],
+      rim: 0x40c0ff, rimInt: 0.5, exposure: 1.0, moon: false, moonDir: nrm([0.2, 0.5, -1]), moonColor: 0xffffff, sunMode: true
+    },
+    sand: { // L5 Gaara's Defense — hot desert noon
+      skyTop: 0x3a6ac0, skyMid: 0xc09050, skyHorizon: 0xffd890, fog: 0xffdf9a, fogNear: 45, fogFar: 200,
+      hemiSky: 0xffd890, hemiGround: 0x8a5a20, hemiInt: 0.7, key: 0xfff0c0, keyInt: 2.3, keyDir: [0, 60, -30],
+      rim: 0xffc060, rimInt: 0.3, exposure: 1.0, moon: false, moonDir: nrm([0, 0.6, -1]), moonColor: 0xffffff, sunMode: true
+    },
+    night: { // L6 Akatsuki Ambush — dark fog night
+      skyTop: 0x040810, skyMid: 0x0f1825, skyHorizon: 0x2a1530, fog: 0x121020, fogNear: 18, fogFar: 95,
+      hemiSky: 0x2a2a48, hemiGround: 0x08060c, hemiInt: 0.35, key: 0xff5a5a, keyInt: 1.0, keyDir: [10, 25, -10],
+      rim: 0xcc0000, rimInt: 0.5, exposure: 1.1, moon: true, moonDir: nrm([0.15, 0.28, -1]), moonColor: 0xff5a70, sunMode: false
+    },
+    redsky: { // L8 Pain's Assault — destroyed Konoha, red sky
+      skyTop: 0x2a0808, skyMid: 0x6a1410, skyHorizon: 0xcc4a20, fog: 0x8a2c14, fogNear: 35, fogFar: 165,
+      hemiSky: 0xcc5a30, hemiGround: 0x1a0808, hemiInt: 0.55, key: 0xff8050, keyInt: 1.7, keyDir: [15, 35, -15],
+      rim: 0xffa060, rimInt: 0.4, exposure: 1.1, moon: false, moonDir: nrm([0.1, 0.3, -1]), moonColor: 0xffffff, sunMode: false
+    },
+    storm: { // L9 Madara's Meteors — barren war battlefield
+      skyTop: 0x1a1408, skyMid: 0x3a2c10, skyHorizon: 0x8a6828, fog: 0x6a5020, fogNear: 40, fogFar: 175,
+      hemiSky: 0x9a7a40, hemiGround: 0x1a1408, hemiInt: 0.55, key: 0xffc060, keyInt: 1.8, keyDir: [-10, 40, -25],
+      rim: 0xffd080, rimInt: 0.35, exposure: 1.1, moon: false, moonDir: nrm([0, 0.35, -1]), moonColor: 0xffffff, sunMode: true
     }
   };
 

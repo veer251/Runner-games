@@ -214,7 +214,7 @@
     DS.Audio.setSection && DS.Audio.setSection(L.music);
     // runner ahead (flavor)
     if (runner.obj) { scene.remove(runner.obj); runner.obj = null; }
-    const who = { forest: 'naruto', castle: 'naruto', train: 'sasuke' }[L.id];
+    const who = L.hero || 'naruto';
     if (who) {
       runner.obj = DS.Chars.hero(who); runner.obj.userData.setState && runner.obj.userData.setState('run');
       runner.obj.userData.face && runner.obj.userData.face(-1);
